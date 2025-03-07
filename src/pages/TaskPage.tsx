@@ -1,6 +1,7 @@
 import { ChevronLeftIcon } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import CompTitle from "../components/CompTitle";
+import CompText from "../components/CompText";
 
 function TaskPage() {
   const [searchParams] = useSearchParams();
@@ -24,7 +25,7 @@ function TaskPage() {
 
         <div className="bg-slate-200 p-4 rounded-md">
           <h2 className="text-xl font-bold text-slate-600">{title}</h2>
-          <p className="text-slate-600">{description}</p>
+          <CompText>{description}</CompText>
         </div>
       </div>
     </div>

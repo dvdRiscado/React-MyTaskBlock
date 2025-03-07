@@ -1,6 +1,7 @@
 import { CheckIcon, ChevronRightIcon, TrashIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import CompButton from "./CompButton";
+import CompText from "./CompText";
 
 function ListTasks(props) {
   const navigate = useNavigate();
@@ -19,23 +20,29 @@ function ListTasks(props) {
 
   return (
     <ul className="space-y-4 p-6 bg-slate-200 rounded-md shadow">
-      {props.tasks.map((task) => (
-        <li key={task.id} className="flex gap-2">
-          <button
-            onClick={() => props.onTaskClicked(task.id)}
-            className="bg-slate-400 text-left w-full text-white p-2 rounded-md flex gap-2"
-          >
-            {task.isCompleted && <CheckIcon />}
-            {task.title}
-          </button>
-          <CompButton onClick={() => onSeeDetailsClick(task)}>
-            <ChevronRightIcon />
-          </CompButton>
-          <CompButton onClick={() => props.onTaskDeleted(task.id)}>
-            <TrashIcon />
-          </CompButton>
-        </li>
-      ))}
+      {props.tasks.length > 0 ? (
+        props.tasks.map((task) => (
+          <li key={task.id} className="flex gap-2">
+            <button
+              onClick={() => props.onTaskClicked(task.id)}
+              className={`bg-slate-400 text-left w-full text-white p-2 rounded-md flex gap-2 ${
+                task.isCompleted && "line-through"
+              }`}
+            >
+              {task.isCompleted && <CheckIcon />}
+              {task.title}
+            </button>
+            <CompButton onClick={() => onSeeDetailsClick(task)}>
+              <ChevronRightIcon />
+            </CompButton>
+            <CompButton onClick={() => props.onTaskDeleted(task.id)}>
+              <TrashIcon />
+            </CompButton>
+          </li>
+        ))
+      ) : (
+        <CompText> Nenhuma tarefa foi adicionada. </CompText>
+      )}
     </ul>
   );
 }
