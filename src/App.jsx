@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AddTask from "./components/AddTask";
 import ListTasks from "./components/ListTasks";
 import CompTitle from "./components/CompTitle";
+import CompFooter from "./components/CompFooter";
 
 function App() {
   // Fará uma busca no localStorage pelas "tasks", caso não tiver, será criado uma lista vazia.
@@ -81,16 +82,19 @@ function App() {
     font-bold: equivalente a 	font-weight: 700
     text-center: centralizar o texto
     */
-    <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
-      <div className="w-[500px] space-y-4">
-        <CompTitle>Gerenciador de Tarefas</CompTitle>
-        <AddTask onTaskAdd={onTaskAdd} />
-        <ListTasks
-          tasks={tasks}
-          onTaskClicked={onTaskClicked}
-          onTaskDeleted={onTaskDeleted}
-        />
+    <div id="main">
+      <div className="w-screen min-h-screen bg-stone-900 flex justify-center p-6">
+        <div className="w-[500px] space-y-4">
+          <CompTitle>Gerenciador de Tarefas</CompTitle>
+          <AddTask onTaskAdd={onTaskAdd} />
+          <ListTasks
+            tasks={tasks}
+            onTaskClicked={onTaskClicked}
+            onTaskDeleted={onTaskDeleted}
+          />
+        </div>
       </div>
+      <CompFooter />
     </div>
   );
 }
