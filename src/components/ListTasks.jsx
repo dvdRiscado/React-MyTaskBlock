@@ -11,6 +11,7 @@ function ListTasks(props) {
     const query = new URLSearchParams();
 
     // Adiciona o titulo e o texto na constante da função.
+    query.set("id", task.id);
     query.set("title", task.title);
     query.set("description", task.description);
 

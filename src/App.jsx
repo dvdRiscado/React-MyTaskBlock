@@ -5,9 +5,18 @@ import CompTitle from "./components/CompTitle";
 
 function App() {
   // Fará uma busca no localStorage pelas "tasks", caso não tiver, será criado uma lista vazia.
+
   const [tasks, setTasks] = useState(
     JSON.parse(localStorage.getItem("tasks")) || []
   );
+
+  useEffect(() => {
+    const fetchTasks = async () => {
+      const response = await JSON.parse(localStorage.getItem("tasks"));
+      setTasks(response);
+    };
+    fetchTasks();
+  }, []);
 
   // useEffect: função que será ativada quando a variável do segundo parâmetro for mudada, executando a função do primeiro parâmetro.
   useEffect(() => {

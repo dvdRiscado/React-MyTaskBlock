@@ -1,6 +1,4 @@
 function CompTitle(props) {
-  console.log(props);
-
   return (
     <h1
       className={
