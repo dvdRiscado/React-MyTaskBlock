@@ -11,20 +11,20 @@ function TaskPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="h-screen w-screen bg-slate-500 p-6">
+    <div className="h-screen w-screen bg-neutral-800 py-6">
       <div className="w-[500px] mx-auto space-y-4">
-        <div className="flex justify-center relative mb-6">
+        <div className="flex justify-center relative mb-6 border-b border-neutral-500">
           <button
             onClick={() => navigate(-1)}
-            className="absolute left-0 top-0 bottom-0 text-slate-100"
+            className="absolute left-0 top-0 bottom-0 text-slate-100 pb-[6px]"
           >
-            <ChevronLeftIcon />
+            <ChevronLeftIcon size={30} color="oklch(0.922 0 0)" />
           </button>
           <CompTitle>Detalhes da Tarefa</CompTitle>
         </div>
 
-        <div className="bg-slate-200 p-4 rounded-md">
-          <h2 className="text-xl font-bold text-slate-600">{title}</h2>
+        <div className="p-4 space-y-2 bg-neutral-800 border border-neutral-600 rounded-lg shadow-lg shadow-neutral-900">
+          <h2 className="text-xl font-bold text-neutral-100">{title}</h2>
           <CompText>{description}</CompText>
         </div>
       </div>

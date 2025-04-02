@@ -25,18 +25,24 @@ function ListTasks(props) {
           <li key={task.id} className="flex gap-2">
             <button
               onClick={() => props.onTaskClicked(task.id)}
-              className={`bg-neutral-600 text-left w-full text-white p-2 rounded-md flex gap-2 ${
+              className={`bg-neutral-600 hover:bg-neutral-500 text-left w-full text-white p-2 rounded-md flex gap-2 ${
                 task.isCompleted && "line-through"
               }`}
             >
-              {task.isCompleted && <CheckIcon />}
+              {task.isCompleted && <CheckIcon color="oklch(0.922 0 0)" />}
               {task.title}
             </button>
-            <CompButton onClick={() => onSeeDetailsClick(task)}>
-              <ChevronRightIcon />
+            <CompButton
+              addclassname="hover:bg-cyan-900 active:bg-cyan-800"
+              onClick={() => onSeeDetailsClick(task)}
+            >
+              <ChevronRightIcon color="oklch(0.922 0 0)" />
             </CompButton>
-            <CompButton onClick={() => props.onTaskDeleted(task.id)}>
-              <TrashIcon />
+            <CompButton
+              addclassname="hover:bg-red-900 active:bg-red-700"
+              onClick={() => props.onTaskDeleted(task.id)}
+            >
+              <TrashIcon color="oklch(0.922 0 0)" />
             </CompButton>
           </li>
         ))
