@@ -19,13 +19,13 @@ function ListTasks(props) {
   }
 
   return (
-    <ul className="space-y-4 p-6 bg-slate-200 rounded-md shadow">
+    <ul className="space-y-4 p-6 bg-neutral-800 border border-neutral-600 rounded-lg shadow-lg shadow-neutral-900">
       {props.tasks.length > 0 ? (
         props.tasks.map((task) => (
           <li key={task.id} className="flex gap-2">
             <button
               onClick={() => props.onTaskClicked(task.id)}
-              className={`bg-slate-400 text-left w-full text-white p-2 rounded-md flex gap-2 ${
+              className={`bg-neutral-600 text-left w-full text-white p-2 rounded-md flex gap-2 ${
                 task.isCompleted && "line-through"
               }`}
             >

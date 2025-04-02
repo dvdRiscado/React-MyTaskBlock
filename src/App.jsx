@@ -81,9 +81,9 @@ function App() {
     font-bold: equivalente a 	font-weight: 700
     text-center: centralizar o texto
     */
-    <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
+    <div className="w-screen h-screen bg-neutral-800 flex justify-center py-6">
       <div className="w-[500px] space-y-4">
-        <CompTitle>Gerenciador de Tarefas</CompTitle>
+        <CompTitle>My TaskBlock</CompTitle>
         <AddTask onTaskAdd={onTaskAdd} />
         <ListTasks
           tasks={tasks}

@@ -6,7 +6,7 @@ function AddTask(props) {
   const [description, setDescription] = useState("");
 
   return (
-    <div className="space-y-4 p-6 bg-slate-200 rounded-md shadow flex flex-col">
+    <div className="space-y-4 p-6 bg-neutral-800 border border-neutral-600 rounded-lg shadow-lg shadow-neutral-900 flex flex-col">
       <CompInput
         type="text"
         placeholder="Digite o título da tarefa"
@@ -20,7 +20,7 @@ function AddTask(props) {
         onChange={(event) => setDescription(event.target.value)}
       />
       <button
-        className="bg-slate-500 text-white px-4 py-2 rounded-md font-medium"
+        className="bg-neutral-700 text-white px-4 py-2 rounded-md font-medium active:bg-neutral-600"
         onClick={() => {
           if (!title.trim() || !description.trim()) {
             return alert("Preencha o título e a descrição da tarefa.");
