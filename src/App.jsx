@@ -90,7 +90,7 @@ function App() {
     font-bold: equivalente a 	font-weight: 700
     text-center: centralizar o texto
     */
-    <div className="w-screen h-screen bg-neutral-800 flex justify-center py-6">
+    <div className="w-screen h-auto min-h-screen bg-neutral-800 flex justify-center py-6">
       <div className="w-[500px] space-y-4">
         <CompTitle addclassname="pb-2 border-b border-neutral-500">
           My TaskBlock

@@ -44,7 +44,7 @@ function TaskPage() {
   }, [description]);
 
   return (
-    <div className="h-screen w-screen bg-neutral-800 py-6">
+    <div className="h-auto min-h-screen w-screen bg-neutral-800 py-6">
       <div className="w-[500px] mx-auto space-y-4">
         <div className="flex justify-center relative mb-6 border-b border-neutral-500">
           <button
