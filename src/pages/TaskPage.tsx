@@ -16,9 +16,13 @@ function TaskPage() {
 
   const navigate = useNavigate();
 
-  const [tasks, setTasks] = useState(
-    JSON.parse(localStorage.getItem("tasks")) || []
-  );
+  const [tasks, setTasks] = useState(() => {
+    const stored = localStorage.getItem("tasks");
+    if (stored) {
+      return JSON.parse(stored);
+    }
+    return [];
+  });
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));

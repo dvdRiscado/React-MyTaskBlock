@@ -4,14 +4,20 @@ import ListTasks from "./components/ListTasks";
 import CompTitle from "./components/CompTitle";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(() => {
+    const stored = localStorage.getItem("tasks");
+    if (stored) {
+      return JSON.parse(stored);
+    }
+    return [];
+  });
 
   // Fará uma busca no localStorage pelas "tasks".
   /* Obs: useEffect será executado apenas uma vez 
      por ter o segundo parâmetro como uma array vazia. */
   useEffect(() => {
-    const fetchTasks = async () => {
-      const response = await JSON.parse(localStorage.getItem("tasks"));
+    const fetchTasks = () => {
+      const response = JSON.parse(localStorage.getItem("tasks"));
       setTasks(response);
     };
     fetchTasks();
