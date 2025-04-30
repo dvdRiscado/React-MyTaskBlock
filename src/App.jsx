@@ -17,8 +17,13 @@ function App() {
      por ter o segundo parâmetro como uma array vazia. */
   useEffect(() => {
     const fetchTasks = () => {
-      const response = JSON.parse(localStorage.getItem("tasks"));
-      setTasks(response);
+      const stored = localStorage.getItem("tasks");
+      const parsed = JSON.parse(stored);
+      if (stored) {
+        setTasks(parsed);
+      } else {
+        setTasks([]);
+      }
     };
     fetchTasks();
   }, []);
